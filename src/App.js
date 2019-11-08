@@ -184,21 +184,21 @@ class App extends Component {
   }
 
   _doFindUsersFor = () => {
-    this.setState({ status: STATE_LOADING, results: undefined });
+    this.setState({ status: STATE_LOADING, results: undefined, errMsg: undefined });
     api.getUsersFor(this.getUser().id, this.getMetric(), this.state.limit)
       .then(res => this.setState({ results: res, status: STATE_READY }))
       .catch(err => this._onError(err));
   }
 
   _doFindMoviesFor = () => {
-    this.setState({ status: STATE_LOADING, results: undefined });
+    this.setState({ status: STATE_LOADING, results: undefined, errMsg: undefined });
     api.getMoviesFor(this.getUser().id, this.getMetric(), this.state.limit)
       .then(res => this.setState({ results: res, status: STATE_READY }))
       .catch(err => this._onError(err));
   }
 
   _doFindMoviesForItemBased = () => {
-    this.setState({ status: STATE_LOADING, results: undefined });
+    this.setState({ status: STATE_LOADING, results: undefined, errMsg: undefined });
     api.getItemBasedMoviesFor(this.getUser().id, this.state.limit)
       .then(res => this.setState({ results: res, status: STATE_READY }))
       .catch(err => this._onError(err));
