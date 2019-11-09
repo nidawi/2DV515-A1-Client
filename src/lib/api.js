@@ -9,7 +9,7 @@ const request = (path) => {
         'Accept': 'application/json'
       },
     })
-    .then(res => res.json())
+    .then(res => res.ok ? res.json() : reject(new Error()))
     .then(res => resolve(res))
     .catch(err => reject(err));
   });
